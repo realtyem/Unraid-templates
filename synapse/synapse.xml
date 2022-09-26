@@ -1,40 +1,40 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>synapse</Name>
-  <Repository>realtyem/synapse:latest</Repository>
+  <Repository>realtyem/synapse</Repository>
   <Registry>https://hub.docker.com/r/realtyem/synapse/</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support>https://github.com/realtyem/synapse/issues</Support>
+  <Support/>
   <Project>https://github.com/matrix-org/synapse</Project>
   <Overview>Synapse Docker image based on matrixdotorg's workers dockerfile.&#xD;
 &#xD;
 The main readme for this docker image is https://hub.docker.com/r/realtyem/synapse/&#xD;
 Most environment variables will only be used for generating configuration files on first start-up(or if you wish to regenerate). Setting them here is harmless after those files are made, but provides for a conveinent place to look up what you put in them before. Once the config files are generated, they can be hand edited instead of re-generating.&#xD;
 &#xD;
-Other than the first three options(appdata folder, server name, and report stats), everything else has sane defaults and will be generated automatically. More options(and sometimes the consequences of them) can be read about on the docker hub page, or the configuration manual at &amp;lt;a href='https://matrix-org.github.io/synapse/latest/welcome_and_overview.html'&amp;gt;github&amp;lt;/a&amp;gt;.</Overview>
-  <Category>Other:</Category>
+Other than the first three options(appdata folder, server name, and report stats), everything else has sane defaults and will be generated automatically. More options(and sometimes the consequences of them) can be read about on the docker hub page, or the configuration manual at github.</Overview>
+  <Category>Network:Messenger Status:Beta</Category>
   <WebUI/>
   <TemplateURL/>
   <Icon/>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
-  <DateInstalled>1664176105</DateInstalled>
+  <DateInstalled>1664180269</DateInstalled>
   <DonateText/>
   <DonateLink/>
   <Requires/>
   <Config Name="Appdata" Target="/data/" Default="/mnt/user/appdata/synapse" Mode="rw" Description="Where most of the persistent data, like config files and metrics data, will go." Type="Path" Display="always" Required="true" Mask="false"/>
-  <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="REQUIRED&amp;lt;br&amp;gt;Make sure you understand the warning in my readme on docker hub. More &amp;lt;a href='https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html#server_name'&amp;gt;info&amp;lt;/a&amp;gt;" Type="Variable" Display="always" Required="true" Mask="false"/>
-  <Config Name="Report stats" Target="SYNAPSE_REPORT_STATS" Default="no" Mode="" Description="This is a simple 'phone home' system the developers(not me) use to figure out how many homeservers are in the wild and some of the basics of their configuration. More &amp;lt;a href='https://matrix-org.github.io/synapse/latest/usage/configuration/config_documentation.html#report_stats'&amp;gt;info&amp;lt;/a&amp;gt;" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Server Name" Target="SERVER_NAME" Default="" Mode="" Description="REQUIREDMake sure you understand the warning in my readme on docker hub. More info" Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Report stats" Target="SYNAPSE_REPORT_STATS" Default="no" Mode="" Description="This is a simple 'phone home' system the developers(not me) use to figure out how many homeservers are in the wild and some of the basics of their configuration. More info" Type="Variable" Display="always" Required="true" Mask="false"/>
   <Config Name="Synapse Main Port" Target="8008" Default="8008" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false"/>
-  <Config Name="Prometheus HTTP Port" Target="9090" Default="9090" Mode="tcp" Description="Where you point your metrics consumer at(like Grafana)" Type="Port" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Prometheus HTTP Port" Target="9090" Default="9090" Mode="tcp" Description="Where you point your metrics consumer at(like Grafana)" Type="Port" Display="always" Required="false" Mask="false"/>
   <Config Name="Prometheus SQLite DB" Target="/var/lib/prometheus/" Default="/mnt/user/appdata/synapse/prometheus/data/" Mode="rw" Description="Where Prometheus keeps it's database. If left unset, anytime you rebuild the image(eg. updates), existing historical data will be lost. This is not where config files are kept." Type="Path" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Postgres Host" Target="POSTGRES_HOST" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Postgres Port" Target="POSTGRES_PORT" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Postgres Synapse Username" Target="POSTGRES_USER" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Postgres Synapse Password" Target="POSTGRES_PASSWORD" Default="" Mode="" Description="Without this, the other Postgresql variables are ignored." Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="Postgres Synapse DB Name" Target="POSTGRES_DB" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Postgres Synapse DB Name" Target="POSTGRES_DB" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"/>
 </Container>
